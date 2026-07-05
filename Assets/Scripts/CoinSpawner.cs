@@ -5,7 +5,6 @@ public class CoinSpawner : MonoBehaviour
     public GameObject[] CoinPrefabs;
 
     private int initialCoins = 5;
-    private int maxCoins; //Assign this later. i will need to keep track of how many coins are out but rn theres no way to get rid of them...
 
     private float spawnLimitXLeft = -8f;
     private float spawnLimitXRight = 8f;

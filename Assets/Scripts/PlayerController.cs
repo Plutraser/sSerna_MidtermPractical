@@ -90,4 +90,5 @@ public class PlayerController : MonoBehaviour
         Vector3 finalMove = cameraRealtiveMoveDirection * speed;
         controller.Move((finalMove + Vector3.up * verticalVelocity) * Time.deltaTime);
     }
+
 }
