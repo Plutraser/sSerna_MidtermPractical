@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
 
     /// <summary>
-    /// 
+    /// If there is no camera transform, it applies the transform of what the main camera's transform is. 
     /// </summary>
     void Start()
     {
@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// First part, its grabbing the z axis and x axis the player will move one as an axis raw. It connects these values together to work with the camera so when the Player moves forward, so does the camera.
+    /// 
+    /// Second part is making gravity work so the player can jump. If the player is falling, there is a multiplier sending them down. It also checks if the controller is grounded, which is to see if the player is on the ground or not. You cannot jump while still in the air.
     /// 
     /// </summary>
     void Update()

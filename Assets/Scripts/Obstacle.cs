@@ -5,12 +5,22 @@ public class Obstacle : MonoBehaviour
     private float movementSpeed;
     private int damageValue;
     private int randomDirection;
+
+    private float minSpeed = 5f;
+    private float maxSpeed = 20f;
+    private int minDamage = 1;
+    private int maxDamage = 6;
+    private int minDirection = 1;
+    private int maxDirection = 5;
+
     private ObstacleSpawner obstacleLocation;
+    private PlayerHealth health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         obstacleLocation = GameObject.Find("ObstacleSpawners").GetComponent<ObstacleSpawner>();
+        health = GameObject.Find("Player").GetComponent<PlayerHealth>();
         SpawnedInObstacle();
     }
 
@@ -19,9 +29,9 @@ public class Obstacle : MonoBehaviour
     /// </summary>
     void SpawnedInObstacle()
     {
-        movementSpeed = Random.Range(5, 20);
-        damageValue = Random.Range(1, 6); //Magic numbers, fix later
-        randomDirection = Random.Range(1, 5);
+        movementSpeed = Random.Range(minSpeed, maxSpeed);
+        damageValue = Random.Range(minDamage, maxDamage);
+        randomDirection = Random.Range(minDirection, maxDirection);
     }
     void Update()
     {
@@ -29,14 +39,14 @@ public class Obstacle : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// If the obstacle collides with the player, it reduces the Player's health by its random damage value, spawns in another object using ObstacleSpawner's method and then destroys itself.
     /// </summary>
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Health stuff
+            health.Health -= damageValue;
             obstacleLocation.GetRandomLocation();
             Destroy(gameObject);
         }
@@ -48,7 +58,7 @@ public class Obstacle : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// The obstacle moving in a random direction based on the random number drawn earlier.
     /// </summary>
     /// <param name="speed"></param>
     void moveObstacle(float speed, int direction)

@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Invokes the coin animations, bobbing and rotating.
     /// </summary>
     void Update()
     {
@@ -30,7 +30,7 @@ public class Coin : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// If the coin collides with the Player, it adds points to the score, calls upon a method in Scoremanager and then destroys itself.
     /// </summary>
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
@@ -38,12 +38,13 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             scoreManagerScript.Score += points;
+            scoreManagerScript.UpdateScore();
             Destroy(gameObject);
         }
     }
 
     /// <summary>
-    /// 
+    /// Rotates the coin
     /// </summary>
     private void RotatingCoinAnimation()
     {
@@ -51,7 +52,7 @@ public class Coin : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// bobs the coin up and down, if it reaches the height limit it goes down and if it reaches the floor limit, it goes back up.
     /// </summary>
     private void BobbingCoinAnimation()
     {

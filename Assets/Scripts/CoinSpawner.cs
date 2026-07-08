@@ -16,7 +16,7 @@ public class CoinSpawner : MonoBehaviour
     private float spawnInterval;
 
     /// <summary>
-    /// 
+    /// Spawns in the 5 initial coins )Bronze, silver or gold randomly) at random locations, then it sets the spawn intervals for the next spawning of coins.
     /// </summary>
     void Start()
     {
@@ -32,7 +32,7 @@ public class CoinSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Spawns coins from bronze, silver, gold in random locations.
     /// </summary>
     void SpawnCoins()
     {

@@ -8,12 +8,12 @@ public class ScoreManager : MonoBehaviour
     private PlayerHealth health;
 
     /// <summary>
-    /// 
+    /// Initializing all the scripts the score manager will use.
     /// </summary>
     void Start()
     {
         obstacleSpawns = GameObject.Find("ObstacleSpawners").GetComponent<ObstacleSpawner>();
-        coinSpawns = GameObject.Find("CoinSpawner").GetComponent<CoinSpawner>();
+        coinSpawns = GameObject.Find("SpawnManager").GetComponent<CoinSpawner>();
         health = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
 
@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// If the player reaches a score of 50 or above, they win. If their health reaches 0 or below, they lose. Both conditions make obstacles and coins stop spawning.
     /// </summary>
     void EndConditions()
     {
@@ -40,5 +40,13 @@ public class ScoreManager : MonoBehaviour
             Destroy(coinSpawns);
             Debug.Log("You LOSE.");
         }
+    }
+
+    /// <summary>
+    /// Updates the score each time points are added.
+    /// </summary>
+    public void UpdateScore()
+    {
+        Debug.Log("New Score: " + Score);
     }
 }

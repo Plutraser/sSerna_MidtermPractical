@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   Target: {fileID: 374122486}
-  FocusOffset: {x: 0, y: 1, z: 0}
+  FocusOffset: {x: 0, y: 1.3, z: 0}
   Distance: 2.2
   SensitivityX: 3
   SensitivityY: 3
@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 374122486}
   - component: {fileID: 374122485}
   - component: {fileID: 374122484}
+  - component: {fileID: 374122490}
   - component: {fileID: 374122483}
   - component: {fileID: 374122487}
   - component: {fileID: 374122489}
@@ -672,6 +673,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &374122490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374122482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc937351ab02434fa2b23cbbe5cd5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  Health: 30
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1858,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 213209615}
   - {fileID: 583613603}
+  - {fileID: 199647999}
   - {fileID: 2106181966}
   - {fileID: 374122486}
-  - {fileID: 199647999}

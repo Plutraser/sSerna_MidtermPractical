@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
 {
     [Header("Target")]
     public Transform Target;
-    public Vector3 FocusOffset = new Vector3(0f, 1.5f, 0f); //Overhead view
+    public Vector3 FocusOffset = new Vector3(0f, 1.3f, 0f); //Overhead view
 
     [Header("Orbit")]
     public float Distance = 2.2f;
@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     private float pitch = 15f;
 
     /// <summary>
-    /// 
+    /// Locks the cursor onto the screen and doesnt allow it to be visible. Need it to be locked so the player can rotate the screen with mouse.
     /// </summary>
     void Start()
     {
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// If the target isnt detected, returns. This controls the camera movement, using the mouse's directions to rotate the screen.
     /// </summary>
     void LateUpdate()
     {

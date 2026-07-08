@@ -18,7 +18,8 @@ public class ObstacleSpawner : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Gets a random spawn location for the obstacles. Because of a bug, I made sure that it cannot spawn another obstacle while one is still active. If there is no other object in the scene,
+    /// It spawns in an obstacle.
     /// </summary>
     public void GetRandomLocation()
     {
