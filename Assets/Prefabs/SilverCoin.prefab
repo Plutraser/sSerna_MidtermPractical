@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5813175222734777278}
   - component: {fileID: 9209506796901973039}
   - component: {fileID: -3501984463641598751}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SilverCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   points: 3
+  rotationSpeed: 80
+  bobSpeed: 2
 --- !u!33 &6390073807132120151
 MeshFilter:
   m_ObjectHideFlags: 0

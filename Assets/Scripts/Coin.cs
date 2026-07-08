@@ -9,8 +9,9 @@ public class Coin : MonoBehaviour
     [SerializeField] private float bobSpeed = 2f;
     private float heightLimit = 2;
     private float floorLimit = 0.5f;
-    private float startDelay = 1f;
+    private float startDelay = 0.2f;
     private float repeatRate;
+    private bool isOnFloor = false;
 
     private ScoreManager scoreManagerScript;
 
@@ -19,12 +20,19 @@ public class Coin : MonoBehaviour
         scoreManagerScript = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     void Update()
     {
         InvokeRepeating("RotatingCoinAnimation", startDelay, repeatRate);
         InvokeRepeating("BobbingCoinAnimation", startDelay, repeatRate);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -47,19 +55,22 @@ public class Coin : MonoBehaviour
     /// </summary>
     private void BobbingCoinAnimation()
     {
+        if (transform.position.y <= floorLimit)
+        {
+            isOnFloor = true;
+        }
         if (transform.position.y >= heightLimit)
         {
-            transform.Translate(Vector3.forward * bobSpeed * Time.deltaTime);
+            isOnFloor = false;
         }
-        else if (transform.position.y <= floorLimit)
+        if (isOnFloor == true)
         {
             transform.Translate(Vector3.back * bobSpeed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector3.back * bobSpeed * Time.deltaTime);
+            transform.Translate(Vector3.forward * bobSpeed * Time.deltaTime);
         }
-
     }
     
 

@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     public Vector3 FocusOffset = new Vector3(0f, 1.5f, 0f); //Overhead view
 
     [Header("Orbit")]
-    public float Distance = 5f;
+    public float Distance = 2.2f;
     public float SensitivityX = 3f;
     public float SensitivityY = 3f;
     public float MinPitch = -20f;

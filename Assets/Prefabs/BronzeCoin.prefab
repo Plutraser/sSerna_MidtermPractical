@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3714497574021828120}
   - component: {fileID: 1191317055756685236}
   - component: {fileID: -8846477719358195592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BronzeCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   points: 1
+  rotationSpeed: 80
+  bobSpeed: 2
 --- !u!33 &8019036902016026901
 MeshFilter:
   m_ObjectHideFlags: 0
